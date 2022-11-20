@@ -34,10 +34,20 @@ app.post("/", function(req, res){
   const jsonData = JSON.stringify(data);
 
   const url = "https://us21.api.mailchimp.com/3.0/lists/c82d510904";
-  https.request(url, options, function(response) {
-
+ 
+  const options = {
+    method: "POST",
+    auth: "parebare:01bd939e76750402bbde8008cdabf92f-us21"
+  };
+ 
+  const request = https.request(url, options, function(response) {
+    response.on("data", function(data){
+      console.log(JSON.parse(data));
+    })
   })  
 
+  request.write(jsonData);
+  request.end();
 
 });
 
