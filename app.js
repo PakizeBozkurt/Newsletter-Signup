@@ -13,6 +13,10 @@ app.get("/", function(req, res) {
 } )
 
 app.post("/", function(req, res){
+  let firstName  = req.body.fName;
+  let lastName = req.body.lName
+  let email = req.body.email;
+
   
 })
 
