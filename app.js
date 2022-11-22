@@ -44,6 +44,8 @@ app.post("/", function(req, res){
     
     if (response.statusCode === 200) {
       res.send("Successfully subscribed!");
+    } else {
+      res.send("Something went wrong, please try again!");
     }
     
     response.on("data", function(data){
